@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
 import { StatsModule } from './stats/stats.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AddressModule } from './address/address.module';
+import { APP_PIPE } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -17,11 +18,16 @@ import { AddressModule } from './address/address.module';
           uri: config.get<string>('MONGO_URI'),
         };
       },
+      inject: [ConfigService],
     }),
     StatsModule,
     AddressModule,
   ],
-  controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_PIPE,
+      useValue: new ValidationPipe({ whitelist: true }),
+    },
+  ],
 })
 export class AppModule {}
