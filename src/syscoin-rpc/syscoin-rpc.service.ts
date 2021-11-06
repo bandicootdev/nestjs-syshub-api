@@ -4,7 +4,7 @@ import { SyscoinRpcClient } from '@syscoin/syscoin-js';
 interface ISyscoinRpcService {
   getRpcInfo();
   countMasterNodes(): Promise<unknown>;
-  validateSysCoinAddress(address): Promise<{ isValid: boolean; error: string }>;
+  validateSysCoinAddress(address): Promise<{ isvalid: boolean; error: string }>;
 }
 
 @Injectable()
@@ -29,10 +29,10 @@ export class SyscoinRpcService implements ISyscoinRpcService {
 
   async validateSysCoinAddress(
     address,
-  ): Promise<{ isValid: boolean; error: string }> {
+  ): Promise<{ isvalid: boolean; error: string }> {
     try {
       return this.syscoinRpcClient
-        .callRpc<{ isValid: boolean; error: string }>('validateaddress', [
+        .callRpc<{ isvalid: boolean; error: string }>('validateaddress', [
           address,
         ])
         .call();
