@@ -16,16 +16,16 @@ export class Address {
   })
   id: string;
 
-  @Prop({ type: String })
+  @Prop({ required: true, type: String })
   label: string;
 
-  @Prop({ type: String })
+  @Prop({ required: true, type: String })
   votingAddress: string;
 
-  @Prop({ type: String })
+  @Prop({ required: true, type: String })
   VotingKey: string;
 
-  @Prop({ type: String })
+  @Prop({ required: true, type: String })
   MasterNodeTxId: string;
 }
 

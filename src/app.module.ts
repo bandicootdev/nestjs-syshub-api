@@ -4,6 +4,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AddressModule } from './address/address.module';
 import { APP_PIPE } from '@nestjs/core';
+import { ProposalModule } from './proposal/proposal.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { APP_PIPE } from '@nestjs/core';
     }),
     StatsModule,
     AddressModule,
+    ProposalModule,
   ],
   providers: [
     {

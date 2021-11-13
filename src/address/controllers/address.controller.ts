@@ -7,11 +7,11 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { AddressService } from './address.service';
-import { CreateAddressDto } from './dtos/create-address.dto';
-import { AddressDto } from './dtos/Address.dto';
-import { Serialize } from '../interceptors/serialize.interceptor';
-import { UpdateAddressDto } from './dtos/update-address.dto';
+import { AddressService } from '../services/address.service';
+import { CreateAddressDto } from '../dtos/create-address.dto';
+import { AddressDto } from '../dtos/Address.dto';
+import { Serialize } from '../../interceptors/serialize.interceptor';
+import { UpdateAddressDto } from '../dtos/update-address.dto';
 
 @Controller('address')
 @Serialize(AddressDto)

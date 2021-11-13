@@ -5,12 +5,12 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Address, AddressDocument } from './address.schema';
+import { Address, AddressDocument } from '../address.schema';
 import { Model } from 'mongoose';
-import { CreateAddressDto } from './dtos/create-address.dto';
+import { CreateAddressDto } from '../dtos/create-address.dto';
 import { nanoid } from 'nanoid';
-import { SyscoinRpcService } from '../syscoin-rpc/syscoin-rpc.service';
-import { UpdateAddressDto } from './dtos/update-address.dto';
+import { SyscoinRpcService } from '../../syscoin-rpc/syscoin-rpc.service';
+import { UpdateAddressDto } from '../dtos/update-address.dto';
 
 export interface IAddressService {
   findAllAddress(): Promise<AddressDocument[]>;
